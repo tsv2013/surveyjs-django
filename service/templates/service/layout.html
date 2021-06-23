@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'service/site.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'service/index.css' %}" />
+</head>
+
+<body>
+    <div class="">
+        <header>
+            <div class="">
+            </div>
+        </header>
+        <div class="">
+            {% block content %}
+            {% endblock %}
+            <div id='app'></div>
+            <div id='modal'></div>
+            {% load static %}
+            <script src="{% static 'service/index.js' %}"></script>
+        </div>
+        <footer>
+            <div class="">
+                <p>SurveyJS <br />Django <br>tsv2013</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
