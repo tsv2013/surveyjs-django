@@ -13,5 +13,6 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("home/", views.home, name="home"),
     path("surveys/", survey_list_view, name="surveys"),
+    path('survey/<int:survey_id>/', views.survey, name='survey'),
     path("api/", include("service.api")),
 ]

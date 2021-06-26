@@ -21,16 +21,13 @@
             </div>
         </header>
         <div class="body-content">
+            {% load static %}
             {% block content %}
             {% endblock %}
-            <div id='app'></div>
-            <div id='modal'></div>
-            {% load static %}
-            <script src="{% static 'service/index.js' %}"></script>
         </div>
         <footer>
-            <div class="">
-                <p>SurveyJS <br />Django <br>tsv2013</p>
+            <div class="footer-content">
+                <p><span>SurveyJS</span> <span>© 2021 by tsv2013</span> <span>Django+DRF</span></p>
             </div>
         </footer>
     </div>

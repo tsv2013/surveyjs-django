@@ -66,7 +66,7 @@ module.exports = function (options) {
         output: {
             path: path.resolve(__dirname, "../service/static/service/"),
             filename: "[name]" + (isDevBuild ? "" : ".min") + ".js",
-            library: "SurvayJSDjango",
+            library: "SurveyJSDjango",
             libraryTarget: "umd",
             umdNamedDefine: true,
         },
