@@ -1,0 +1,37 @@
+{% extends "service/layout.html" %}
+
+{% block title %}
+My Surveys
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Home page content should go here -->
+<h2>Surveys</h2>
+
+{% if survey_list %}
+<table class="survey_list">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>JSON</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for survey in survey_list %}
+        <tr>
+            <td>{{ survey.id }}</td>
+            <td>{{ survey.name }}</td>
+            <td>{{ survey.json }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No surveys have been created. Use the <a href="{% url 'surveys' %}">SurveyJS Creator form</a>.</p>
+{% endif %}
+
+{% endblock %}
