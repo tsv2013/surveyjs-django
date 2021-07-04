@@ -4,12 +4,15 @@
 Survey: {{ survey.name }}
 {% endblock %}
 
+{% block pagetitle %}
+Run: {{ survey.name }}
+{% endblock %}
+
 {% block content %}
 
 {% load static %}
 
 <!-- Home page content should go here -->
-<h2>{{ survey.name }}</h2>
 <div id='app'></div>
 <div id='modal'></div>
 <script src="{% static 'service/index.js' %}"></script>

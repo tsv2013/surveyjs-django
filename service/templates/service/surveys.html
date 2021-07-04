@@ -6,34 +6,37 @@ My Surveys
 
 {% block content %}
 
-{% load static %}
+<div class="survey-list">
+    {% load static %}
 
-<!-- Home page content should go here -->
-<h2>Surveys</h2>
+    <!-- Home page content should go here -->
+    <h2>My Surveys</h2>
 
-{% if survey_list %}
-<table class="survey_list">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th></th>
-            <th>JSON</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for survey in survey_list %}
-        <tr>
-            <td>{{ survey.id }}</td>
-            <td>{{ survey.name }}</td>
-            <td><a href="{% url 'survey' survey.id %}">Run</a><a href="{% url 'edit' survey.id %}">Edit</a></td>
-            <td>{{ survey.json }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p>No surveys have been created. Use the <a href="{% url 'surveys' %}">SurveyJS Creator form</a>.</p>
-{% endif %}
+    {% if survey_list %}
+    <table class="">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+                <th>JSON</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for survey in survey_list %}
+            <tr>
+                <td>{{ survey.id }}</td>
+                <td>{{ survey.name }}</td>
+                <td><a class="table-action" href="{% url 'survey' survey.id %}">Run</a><a class="table-action"
+                        href="{% url 'edit' survey.id %}">Edit</a></td>
+                <td>{{ survey.json }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No surveys have been created. Use the <a href="{% url 'surveys' %}">SurveyJS Creator form</a>.</p>
+    {% endif %}
+</div>
 
 {% endblock %}

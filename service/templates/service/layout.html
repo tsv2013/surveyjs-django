@@ -10,12 +10,14 @@
 </head>
 
 <body>
-    <div class="">
+    <div class="app-root">
         <header>
             <div class="">
                 <div class="navbar">
                     <a href="{% url 'home' %}" class="navbar-brand">Home</a>
                     <a href="{% url 'surveys' %}" class="navbar-item">Surveys</a>
+                    <span class="grow-area"></span>
+                    <span class="right-aligned">{% block pagetitle %}{% endblock %}</span>
                 </div>
             </div>
         </header>
@@ -26,7 +28,9 @@
         </div>
         <footer>
             <div class="footer-content">
-                <p><span>SurveyJS</span> <span>© 2021 by tsv2013</span> <span>Django+DRF</span></p>
+                <span><a href="https://surveyjs.io">SurveyJS</a></span> <span class="grow-area">© 2021 by <a
+                        href="https://github.com/tsv2013">tsv2013</a></span> <span
+                    class="right-aligned">Django+DRF</span>
             </div>
         </footer>
     </div>
