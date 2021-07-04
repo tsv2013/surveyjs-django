@@ -29,9 +29,22 @@ export function survey(json, element) {
   );
 }
 
-export function edit(json, element) {
-  const creator: any = new Creator.SurveyCreator({});
+export function edit(json, id, name, element) {
+  const creator: any = new Creator.SurveyCreator({ isAutoSave: true });
   creator.JSON = json;
+  creator.saveSurveyFunc = (no, callback) => {
+    var xhr = new XMLHttpRequest();
+    xhr.open("PUT", "/api/surveys/" + id);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onload = function () {
+      callback(no, true);
+    };
+    xhr.send(JSON.stringify({
+      id: id,
+      name: name,
+      json: JSON.stringify(creator.JSON)
+    }));
+  };
   ReactDOM.render(
     <React.StrictMode>
       <Creator.SurveyCreatorComponent creator={creator}></Creator.SurveyCreatorComponent>

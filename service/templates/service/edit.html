@@ -18,8 +18,10 @@ Edit: {{ survey.name }}
 
 <script src="{% static 'service/index.js' %}"></script>
 <script>
+    var id = '{{ survey.id }}';
+    var name = '{{ survey.name }}';
     var json = JSON.parse('{{ survey.json|escapejs }}');
-    SurveyJSDjango.edit(json, 'app');
+    SurveyJSDjango.edit(json, id, name, 'app');
 </script>
 
 {% endblock %}
