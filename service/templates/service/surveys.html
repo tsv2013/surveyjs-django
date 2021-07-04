@@ -17,6 +17,7 @@ My Surveys
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th></th>
             <th>JSON</th>
         </tr>
     </thead>
@@ -24,7 +25,8 @@ My Surveys
         {% for survey in survey_list %}
         <tr>
             <td>{{ survey.id }}</td>
-            <td><a href="{% url 'survey' survey.id %}">{{ survey.name }}</a></td>
+            <td>{{ survey.name }}</td>
+            <td><a href="{% url 'survey' survey.id %}">Run</a><a href="{% url 'edit' survey.id %}">Edit</a></td>
             <td>{{ survey.json }}</td>
         </tr>
         {% endfor %}

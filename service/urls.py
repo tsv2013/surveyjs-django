@@ -14,5 +14,5 @@ urlpatterns = [
     path("home/", views.home, name="home"),
     path("surveys/", survey_list_view, name="surveys"),
     path('survey/<int:survey_id>/', views.survey, name='survey'),
-    path("api/", include("service.api")),
+    path('edit/<int:survey_id>/', views.edit, name='edit'),
 ]

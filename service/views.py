@@ -23,3 +23,8 @@ class SurveyListView(ListView):
 def survey(request, survey_id):
     survey = get_object_or_404(Survey, pk=survey_id)
     return render(request, 'service/survey.html', {'survey': survey})
+
+
+def edit(request, survey_id):
+    survey = get_object_or_404(Survey, pk=survey_id)
+    return render(request, 'service/edit.html', {'survey': survey})
