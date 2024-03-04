@@ -20,7 +20,7 @@ export function start() {
 }
 
 export function survey(json, element) {
-  const model = new Survey.Model(json);
+  const model = new SurveyCore.Model(json);
   ReactDOM.render(
     <React.StrictMode>
       <Survey.Survey model={model}></Survey.Survey>
