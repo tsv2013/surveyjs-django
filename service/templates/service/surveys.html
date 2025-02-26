@@ -22,7 +22,7 @@ My Surveys
 
     <form class="new-survey-form" method="post" action="/surveys/">
         {% csrf_token %}
-        <button>Ceeate</button><span> a new one called </span><input name="name" value="My First Survey"/><span> and edit it.</span>
+        <button class="table-action">Create</button><span> a new survey called </span><input name="name" value="My First Survey"/><span> and edit it.</span>
     </form>
 
     {% if survey_list %}
