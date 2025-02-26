@@ -5,7 +5,7 @@ Survey: {{ survey.name }}
 {% endblock %}
 
 {% block pagetitle %}
-Edit: {{ survey.name }}
+<div class="title-survey-name">{{ survey.name }}</div>
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@ Edit: {{ survey.name }}
 <script>
     var id = '{{ survey.id }}';
     var name = '{{ survey.name }}';
-    var json = JSON.parse('{{ survey.json|escapejs }}');
+    var json = JSON.parse('{{ survey.json|escapejs }}' || '{}');
     SurveyJSDjango.edit(json, id, name, 'app');
 </script>
 

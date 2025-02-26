@@ -1,4 +1,4 @@
-{% extends "service/layout.html" %}
+    {% extends "service/layout.html" %}
 
 {% block title %}
 My Surveys
@@ -6,17 +6,30 @@ My Surveys
 
 {% block content %}
 
+<script>
+    function removeSurvey(surveyId) {
+        fetch('/api/surveys/' + surveyId, {
+            method: 'DELETE'
+        }).then(() => location.reload());
+    }
+</script>
+
 <div class="survey-list">
     {% load static %}
 
     <!-- Home page content should go here -->
     <h2>My Surveys</h2>
 
+    <form class="new-survey-form" method="post" action="/surveys/">
+        {% csrf_token %}
+        <button>Ceeate</button><span> a new one called </span><input name="name" value="My First Survey"/><span> and edit it.</span>
+    </form>
+
     {% if survey_list %}
     <table class="">
         <thead>
             <tr>
-                <th>ID</th>
+                <th width="10%">ID</th>
                 <th width="200px">Name</th>
                 <th width="200px">Actions</th>
                 <th>JSON</th>
@@ -28,14 +41,15 @@ My Surveys
                 <td>{{ survey.id }}</td>
                 <td>{{ survey.name }}</td>
                 <td><a class="table-action" href="{% url 'survey' survey.id %}">Run</a><a class="table-action"
-                        href="{% url 'edit' survey.id %}">Edit</a></td>
+                        href="{% url 'edit' survey.id %}">Edit</a> <button class="table-action"
+                        onclick="removeSurvey({{ survey.id }})">Delete</button></td>
                 <td>{{ survey.json }}</td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
     {% else %}
-    <p>No surveys have been created. Use the <a href="{% url 'surveys' %}">SurveyJS Creator form</a>.</p>
+    <p>No surveys have been created yet.</p>
     {% endif %}
 </div>
 

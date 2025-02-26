@@ -41,6 +41,7 @@ class SurveyDetailView(APIView):
     def delete(self, request, pk):
         survey = get_object_or_404(Survey.objects.all(), pk=pk)
         survey.delete()
+        # Survey.objects.all().delete()
         return Response({
             "message": "Survey with id `{}` has been deleted.".format(pk)
         }, status=204)

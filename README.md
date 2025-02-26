@@ -25,7 +25,7 @@ npm run build
 
 ```bash
 cd surveyjs-django
-pip install requirements.txt
+pip install -r requirements.txt
 python manage.py migrate  
 python manage.py runserver
 ```

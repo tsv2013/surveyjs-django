@@ -5,7 +5,7 @@ Survey: {{ survey.name }}
 {% endblock %}
 
 {% block pagetitle %}
-Run: {{ survey.name }}
+<div class="title-survey-name">{{ survey.name }}</div>
 {% endblock %}
 
 {% block content %}
@@ -18,7 +18,7 @@ Run: {{ survey.name }}
 <script src="{% static 'service/index.js' %}"></script>
 
 <script>
-    var json = JSON.parse('{{ survey.json|escapejs }}');
+    var json = JSON.parse('{{ survey.json|escapejs }}' || '{}');
     SurveyJSDjango.survey(json, 'app');
 </script>
 
