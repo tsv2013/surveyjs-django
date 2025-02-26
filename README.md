@@ -25,6 +25,7 @@ npm run build
 
 ```bash
 cd surveyjs-django
+# python -m venv .venv # create venv in working folder if needed
 pip install -r requirements.txt
 python manage.py migrate  
 python manage.py runserver
