@@ -33,3 +33,7 @@ python manage.py runserver
 ```
 
 Open http://localhost:8000 in your web browser.
+
+## See also
+
+https://blog.jetbrains.com/pycharm/2025/02/django-flask-fastapi/#:~:text=Performance%3A%20While%20Flask%20performs%20slightly,more%20tightly%20tied%20to%20WSGI.
